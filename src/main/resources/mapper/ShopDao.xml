@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.imooc.o2o.dao.ShopDao">
+	<insert id="insertShop" useGeneratedKeys="true"
+		keyColumn="shop_id" keyProperty="shopId">
+		insert into
+		tb_shop(owner_id,area_id,shop_category_id,shop_name,shop_desc,shop_addr,phone,
+		shop_img,priority,create_time,last_edit_time,enable_status,advice)
+		values
+		(#{owner.userId},#{area.areaId},#{shopCategory.shopCategoryId},#{shopName},
+		#{shopDesc},#{shopAddr},#{phone},#{shopImg},#{priority},#{createTime},
+		#{laseEditTime},#{enable_status},#{advice})
+	</insert>
+
+	<update id="updateShop"
+		parameterType="com.imooc.o2o.entity.shop">
+		update tb_shop
+		<set>
+			<if test="shopName!=null">shop_name=#{shopName},</if>
+			<if test="shopDesc!=null">shop_name=#{shopDesc},</if>
+			<if test="shopAddr!=null">shop_name=#{shopAddr},</if>
+			<if test="phone!=null">shop_name=#{phone},</if>
+			<if test="shopImg!=null">shop_name=#{shopImg},</if>
+			<if test="priority!=null">shop_name=#{priority},</if>
+			<if test="lastEditTime!=null">shop_name=#{lastEditTime},</if>
+			<if test="enableStatus!=null">shop_name=#{enableStatus},</if>
+			<if test="advice!=null">shop_name=#{advice},</if>
+			<if test="ShopCategory!=null">shop_Category_id=#{ShopCategory.ShopCategoryId},</if>
+			<if test="area!=null">area_id=#{area.areaId}</if>
+
+		</set>
+		where shop_id=#{shopId}
+
+	</update>
+</mapper>
