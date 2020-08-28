@@ -3,19 +3,19 @@ package com.imooc.o2o.entity;
 import java.util.Date;
 
 /**
- * ÓÃ»§¸öÈËĞÅÏ¢
+ * ç”¨æˆ·ä¿¡æ¯ç±»
  * 
- * @author loveÌìÎÊ
+ * @author loverå¤©é—®
  *
  */
 public class PersonInfo {
 	private Long userId;
 	private String name;
-	private String profileImg; // ÓÃ»§Í·ÏñµØÖ·
+	private String profileImg; // ï¿½Ã»ï¿½Í·ï¿½ï¿½ï¿½Ö·
 	private String email;
-	private String gender; // ÓÃ»§ĞÔ±ğ
-	private Integer enableStatus; // ÓÃ»§×´Ì¬
-	// 1.¹Ë¿Í 2.µê¼Ò 3.³¬¼¶¹ÜÀíÔ±
+	private String gender; // ï¿½Ã»ï¿½ï¿½Ô±ï¿½
+	private Integer enableStatus; // ï¿½Ã»ï¿½×´Ì¬
+	// 1.ï¿½Ë¿ï¿½ 2.ï¿½ï¿½ï¿½ 3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±
 	private Integer userType;
 	private Date createTime;
 	private Date lastEditTime;

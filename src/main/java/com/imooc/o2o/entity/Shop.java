@@ -3,9 +3,9 @@ package com.imooc.o2o.entity;
 import java.util.Date;
 
 /**
- * ÉÌÆÌ
+ * åº—é“ºç±»
  * 
- * @author loveÌìÎÊ
+ * @author loveå¤©é—®
  *
  */
 public class Shop {
@@ -15,16 +15,16 @@ public class Shop {
 	private String shopAddr;
 	private String phone;
 	private String shopImg;
-	private Integer priority; // È¨ÖØÓÅÏÈ¼¶
+	private Integer priority; // È¨ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½
 	private Date createTime;
-	private Date lastEditTime; // ×îĞÂĞŞ¸ÄÊ±¼ä
-	// -1.²»¿ÉÓÃ 0.ÉóºËÖĞ 1.¿ÉÓÃ
+	private Date lastEditTime; // ï¿½ï¿½ï¿½ï¿½ï¿½Ş¸ï¿½Ê±ï¿½ï¿½
+	// -1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0.ï¿½ï¿½ï¿½ï¿½ï¿½ 1.ï¿½ï¿½ï¿½ï¿½
 	private Integer enableStatus;
-	// ³¬¼¶¹ÜÀíÔ±¸øµê¼ÒµÄÌáĞÑ/½¨Òé
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½
 	private String advice;
-	private Area area; // ÇøÓòÊµÌåÀà
-	private PersonInfo owner; // ÓÃ»§ĞÅÏ¢ÊµÌåÀà
-	private ShopCategory ShopCategory; // ÉÌÆÌÀà±ğÊµÌåÀà
+	private Area area; // ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
+	private PersonInfo owner; // ï¿½Ã»ï¿½ï¿½ï¿½Ï¢Êµï¿½ï¿½ï¿½ï¿½
+	private ShopCategory ShopCategory; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
 
 	public Long getShopId() {
 		return shopId;
