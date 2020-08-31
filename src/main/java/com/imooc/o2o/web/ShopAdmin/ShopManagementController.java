@@ -1,5 +1,10 @@
 package com.imooc.o2o.web.ShopAdmin;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +23,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.imooc.o2o.dto.ShopExecution;
 import com.imooc.o2o.entity.PersonInfo;
 import com.imooc.o2o.entity.Shop;
+import com.imooc.o2o.enums.ShopStateEnum;
+import com.imooc.o2o.exceptions.ShopOperationException;
 import com.imooc.o2o.service.ShopService;
 import com.imooc.o2o.util.HttpServletRequestUtil;
 
@@ -75,13 +82,40 @@ public class ShopManagementController {
 			owner.setUserId(1L);
 			shop.setOwner(owner);
 			// 前端传递的信息添加到shop里面去
-			ShopExecution se = shopService.addShop(shop, shopImg);
+			ShopExecution se;
+			try {
+				se = shopService.addShop(shop, shopImg.getInputStream(), shopImg.getOriginalFilename());
+				if (se.getState() == ShopStateEnum.CHECK.getState()) {
+					modelMap.put("success", false);
+				}
+			} catch (ShopOperationException e) {
+				modelMap.put("success", false);
+				modelMap.put("errMsg", e.getMessage());
+
+			} catch (IOException e) {
+				modelMap.put("success", false);
+				modelMap.put("errMsg", e.getMessage());
+
+			}
+			return modelMap;
 
 		} else {
 			modelMap.put("success", false);
 			modelMap.put("errMeg", "请输入店铺信息");
+			return modelMap;
 
 		}
 		// 3.返回结果
+
 	}
+
+	private static void InputStreamToFile(InputStream ins, File file) {
+		OutputStream os = null;
+		try {
+			os = new FileOutputStream(file);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
 }
